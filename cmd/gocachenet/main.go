@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
+	"github.com/bilenko-ha1305/GoCacheNet/internal"
 	"net"
 	"os"
 	"strings"

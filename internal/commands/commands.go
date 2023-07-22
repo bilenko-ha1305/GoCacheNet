@@ -1,4 +1,4 @@
-package internal
+package commands
 
 import (
 	_ "encoding/json"
@@ -11,7 +11,7 @@ type RedisCommand struct {
 	Value   interface{} `json:"value"`
 }
 
-func (r *Redis) HandleCommand(command string, key string, value interface{}) interface{} {
+func (r *internal.Redis) HandleCommand(command string, key string, value interface{}) interface{} {
 	switch strings.ToLower(command) {
 	case "set":
 		r.Set(key, value)
