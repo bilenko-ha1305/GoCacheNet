@@ -1,16 +1,16 @@
 package main
 
 import (
+	"GoCacheNet/internal/commands"
 	"bufio"
 	"encoding/json"
 	"fmt"
-	"github.com/bilenko-ha1305/GoCacheNet/internal"
 	"net"
 	"os"
 	"strings"
 )
 
-func handleConnection(conn net.Conn, redis *Redis) {
+func handleConnection(conn net.Conn, redis *commands.Redis) {
 	defer conn.Close()
 
 	scanner := bufio.NewScanner(conn)
@@ -40,7 +40,7 @@ func handleConnection(conn net.Conn, redis *Redis) {
 }
 
 func main() {
-	redis := NewRedis()
+	redis := commands.NewRedis()
 
 	// Запускаем TCP-сервер на порту 8080
 	listener, err := net.Listen("tcp", ":8080")
